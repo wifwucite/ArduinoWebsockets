@@ -231,6 +231,9 @@ namespace websockets {
         if(this->_optional_ssl_private_key) {
             client->setPrivateKey(this->_optional_ssl_private_key);
         }
+        if (!this->_optional_ssl_ca_cert && !this->_optional_ssl_client_ca && !this->_optional_ssl_private_key) {
+            client->setInsecure();
+        }
     #endif
 
         this->_client = std::shared_ptr<WSDefaultSecuredTcpClient>(client);

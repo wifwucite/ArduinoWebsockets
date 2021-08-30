@@ -25,7 +25,11 @@ namespace websockets { namespace network {
     
     void setPrivateKey(const char* private_key) {
       this->client.setPrivateKey(private_key);
-    }    
+    }
+
+    void setInsecure() {
+      this->client.setInsecure();
+    } 
   };
 
 
